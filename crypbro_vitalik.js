@@ -122,6 +122,12 @@ login(credentials, (err, api) => {
         api.sendMessage('I have so many regrets.', message.threadID);
         return;
       }
+      if(message.body.toLowerCase().indexOf('gnosis a scam') != -1) {
+        api.sendMessage("Yes. Augur for life.");
+      }
+      if(message.body.toLowerCase().indexOf('hold') != -1) {
+        api.sendMessage("*HODL");
+      }
 
       // Now we know that the message is directed at the bot.
       var parsed = parseCall(message.body);
