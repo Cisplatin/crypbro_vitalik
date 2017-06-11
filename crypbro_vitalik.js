@@ -312,6 +312,12 @@ login(credentials, (err, api) => {
         api.sendMessage('I have so many regrets.', message.threadID);
         return;
       }
+      if(message.body.toLowerCase().indexOf('gnosis a scam') != -1) {
+        api.sendMessage("Yes. Augur for life.");
+      }
+      if(message.body.toLowerCase().indexOf('hold') != -1) {
+        api.sendMessage("*HODL");
+      }
 
       const msg = message.body.substring(BOT_CALL.length);
       if(msg.toLowerCase() === 'init') {
