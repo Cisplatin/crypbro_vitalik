@@ -313,10 +313,12 @@ login(credentials, (err, api) => {
         return;
       }
       if(message.body.toLowerCase().indexOf('gnosis a scam') != -1) {
-        api.sendMessage("Yes. Augur for life.");
+        api.sendMessage("Yes. Augur for life.", message.threadID);
+        return;
       }
-      if(message.body.toLowerCase().indexOf('hold') != -1) {
-        api.sendMessage("*HODL");
+      if(message.body.toLowerCase().indexOf('hold?') != -1) {
+        api.sendMessage("*HODL", message.threadID);
+        return;
       }
 
       const msg = message.body.substring(BOT_CALL.length);
