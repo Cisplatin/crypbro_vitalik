@@ -370,7 +370,7 @@ login(credentials, (err, api) => {
             eth = parseFloat(response[0]['market_cap_usd']);
             value = (eth / btc);
             value = parseFloat(value);
-            value = parseFloat(value.toFixed(2)).toLocaleString();
+            value = (100 * parseFloat(value.toFixed(2))).toLocaleString();
             api.sendMessage(value + '%', message.threadID);
           });
         });
