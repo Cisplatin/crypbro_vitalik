@@ -365,17 +365,18 @@ login(credentials, (err, api) => {
         request(url, function (error, response, body) {
           var response = JSON.parse(body);
           btc = parseFloat(response[0]['price']);
+          console.log(response[0]['price']);
+          console.log(btc);
+          url = 'https://api.coinmarketcap.com/v1/ticker/ethereum/'
+          request(url, function (error, response, body) {
+            var response = JSON.parse(body);
+            eth = parseFloat(response[0]['price']);
+            console.log(response[0]['price']);
+            console.log(eth);
+            api.sendMessage(eth / btc, message.threadID);
+            return;
+          });
         });
-        console.log(btc)
-        var url = 'https://api.coinmarketcap.com/v1/ticker/ethereum/'
-        request(url, function (error, response, body) {
-          var response = JSON.parse(body);
-          eth = parseFloat(response[0]['price']);
-        });
-        console.log(eth)
-        console.log(eth / btc);
-        api.sendMessage(eth / btc, message.threadID);
-        return;
       }
 
       respondToQuery(currency, command, api, message.threadID);
