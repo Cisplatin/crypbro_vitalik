@@ -363,12 +363,12 @@ login(credentials, (err, api) => {
         var url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
         request(url, function (error, response, body) {
           var response = JSON.parse(body);
-          btc = parseFloat(response[0]['price'];
+          btc = parseFloat(response[0]['price']);
         }
         var url = 'https://api.coinmarketcap.com/v1/ticker/ethereum/'
         request(url, function (error, response, body) {
           var response = JSON.parse(body);
-          eth = parseFloat(response[0]['price'];
+          eth = parseFloat(response[0]['price']);
         }
         api.sendMessage(btc / eth, message.threadID);
         return;
