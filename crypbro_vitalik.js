@@ -4,7 +4,7 @@ const request = require('request');
 const rateLimit = require('function-rate-limit');
 
 BASE_URL = 'https://api.coinmarketcap.com/v1/ticker/';
-BOT_CALL = '@Vitalik Wallet ';
+BOT_CALL = '@Crypbro ';
 API_RATE_LIMIT = 6000;
 
 function idempotent(value, symbol) { return value; }
@@ -49,7 +49,8 @@ function validBotCall(message) {
 // @return [Array<String> || Bool] The parsed command. Or False if invalid.
 function parseCall(message) {
   var parsed = message.toLowerCase();
-  parsed = parsed.replace(BOT_CALL.toLowerCase(), '').split(' ');
+  parsed = parsed.replace(BOT_CALL.toLowerCase(), '');
+  parsed = parsed.replace('vitalik ', '').split(' ');
 
   // If it's just the currency, return the price
   if(parsed.length == 1) parsed.push('price_usd');
