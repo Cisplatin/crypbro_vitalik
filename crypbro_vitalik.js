@@ -356,6 +356,7 @@ login(credentials, (err, api) => {
         api.sendMessage(reply, message.threadID);
         return;
       }
+      console.log('fuck1')
 
       if(currency == 'flippening') {
         var btc = 0;
@@ -365,12 +366,15 @@ login(credentials, (err, api) => {
           var response = JSON.parse(body);
           btc = parseFloat(response[0]['price']);
         });
+        console.log(btc)
         var url = 'https://api.coinmarketcap.com/v1/ticker/ethereum/'
         request(url, function (error, response, body) {
           var response = JSON.parse(body);
           eth = parseFloat(response[0]['price']);
         });
-        api.sendMessage(btc / eth, message.threadID);
+        console.log(eth)
+        console.log(eth / btc);
+        api.sendMessage(eth / btc, message.threadID);
         return;
       }
 
