@@ -371,7 +371,8 @@ login(credentials, (err, api) => {
             value = (eth / btc);
             value = parseFloat(value);
             value = (100 * parseFloat(value.toFixed(2))).toLocaleString();
-            api.sendMessage(value + '%', message.threadID);
+            value = 'ETH market cap is ' + value + '% of the BTC market cap.';
+            api.sendMessage(value, message.threadID);
           });
         });
         return;
