@@ -364,6 +364,7 @@ login(credentials, (err, api) => {
         var url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
         request(url, function (error, response, body) {
           var response = JSON.parse(body);
+          console.log(response);
           btc = parseFloat(response[0]['price']);
           console.log(response[0]['price']);
           console.log(btc);
